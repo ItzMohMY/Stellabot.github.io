@@ -1,36 +1,437 @@
-<%- include("../partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
 
-<title>Manage <%= guild.name %> » <%= bot.user.username %> Dashboard</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://stellabot.projects-replit.repl.co/" />
+  <meta property="og:title" content="StellaBot" />
+  <meta property="og:description" content="Arabic bot, public commands, moderation commands, games commands, modern bot, and more!" />
+  <meta property="og:image" content="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002"/>
+  <meta property="og:color" content="#8a58f9" />
+  <script src="https://kit.fontawesome.com/b3a9d94f59.js" crossorigin="anonymous"></script>
+  <link rel="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002" sizes="76x76" href="./assets/img/apple-icon.png">
+  <script src="https://uptime.betterstack.com/widgets/announcement.js" data-id="163720" async="async" type="text/javascript"></script>
+  <link rel="icon" href="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002">
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/scripts.js"></script>
+  <title>
+    <%= guild.name %> - لوحة التحكم
+  </title>
+<body>
 
-<div class="text-center text-light" style="padding-top: 65px; padding-bottom: 20px;">
-    <div class="p-5 text-center" style="padding-top: 110px; background-color: #3B465E;">
-        <% if (guild.icon) { %>
-            <img class="rounded-circle" width="140px" style="opacity: 1;" src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>?size=512"> 
-        <% } else { %>
-            <img class="rounded-circle" width="84px" style="opacity: 1;" src="https://discordapp.com/assets/6debd47ed13483642cf09e832ed0bc1b.png?size=2048"> 
-        <% } %>
-        <br>
-        <br>
-        <h1 class="mb-3">Manage <%= guild.name %></h1>
+<div class="video-bg">
+ <video width="320" height="240" autoplay loop muted>
+  <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="dark-light">
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+   </div>
+<div class="app">
+ <div class="header">
+  <div class="menu-circle"></div>
+  <div class="header-menu">
+   <a class="menu-link is-active" href="/">Home</a>
+   <a class="menu-link" href="/commands">Commands</a>
+   <a class="menu-link" href="/premium">Premium</a>
+  <% if (user) { %>
+   
+   <% } else { %>
+    <a class="menu-link notify" href="/login">Login</a>
+     <% } %>
+  </div>
+
+  <div class="header-profile">
+
+  <% if (user) { %>
+  <a href="/dashboard/profile">
+   <img class="profile-img" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>" alt="">
+  </a>
+    <% } else { %>
+  <a href="/login">
+   <img class="profile-img" src="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/download.png?v=1685741416772" alt="">
+  </a>
+ <% } %>
+      
+  </div>
+ </div>
+   
+ <div class="wrapper">
+  <div class="left-side">
+   <div class="side-wrapper">
+    <div class="side-title">
+             <% if (guild.icon) { %>
+              <img
+                class="image has-image-centered vert-move mt-4"
+                src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>?size=512"
+                alt="hero image"
+                style="width: 100px;border-radius:800px;margin-right: auto;margin-left: auto;display: block;"
+              />
+           <% } else { %>
+              <img
+                class="image has-image-centered vert-move mt-4"
+                src="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/download.png?v=1685741416772"
+                alt="hero image"
+                style="width: 100px;border-radius:800px;margin-right: auto;margin-left: auto;display: block;"
+              />   
+             <% } %>    
+          <p style="text-align:center;color:white"><%= guild.name %></p>
+
+    </div>
+   </div>
+               
+   <div class="side-wrapper">
+    <div class="side-title">GENERAL</div>
+    <div class="side-menu">
+     <a href="#" onclick="openCity(event, 'London')" id="defaultOpen">
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+      Guild Details
+     </a>
+     <a href="#" onclick="openCity(event, 'Paris')">
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
+      Guild Settings
+     </a>
+    </div>
+   </div>
+   <div class="side-wrapper">
+    <div class="side-title">GENERAL</div>
+    <div class="side-menu">
+     <a href="/suggestions">
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512" fill="CurrentColor">=<path d="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
+      Suggestions
+     </a>
+
+     <a href="/suggestions">
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+      Feedbacks
+     </a>      
+    </div>
+   </div>
+  </div>
+  
+  <div class="main-container">
+   <div class="main-header">
+    <a class="menu-link-main">> Servers page > Manage <%= guild.name %></a>
+    <div class="header-menu">
+     <a class="main-header-link" href="/">Center</a>
+     <a class="main-header-link" href="/dashboard/profile">Profile</a>
+     <a class="main-header-link is-active" href="/dashboard/servers">Servers</a>
+
+    </div>
+   </div>
+   <div class="content-wrapper">
+     
+<div id="London" class="tabcontent">
+    <div class="content-section">
+     <div class="content-section-title"><%= guild.name %> - Details:</div>
+     <div class="apps-card">
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="currentColor"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg>
+        Members: <%= guild.memberCount %>
+       </span>
+      </div>
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z"/></svg>
+        Boosts: <%= guild.premiumSubscriptionCount %>
+       </span>
+      </div>   
+
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="currentColor"><path d="M353.8 54.1L330.2 6.3c-3.9-8.3-16.1-8.6-20.4 0L286.2 54.1l-52.3 7.5c-9.3 1.4-13.3 12.9-6.4 19.8l38 37-9 52.1c-1.4 9.3 8.2 16.5 16.8 12.2l46.9-24.8 46.6 24.4c8.6 4.3 18.3-2.9 16.8-12.2l-9-52.1 38-36.6c6.8-6.8 2.9-18.3-6.4-19.8l-52.3-7.5zM256 256c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H384c17.7 0 32-14.3 32-32V288c0-17.7-14.3-32-32-32H256zM32 320c-17.7 0-32 14.3-32 32V480c0 17.7 14.3 32 32 32H160c17.7 0 32-14.3 32-32V352c0-17.7-14.3-32-32-32H32zm416 96v64c0 17.7 14.3 32 32 32H608c17.7 0 32-14.3 32-32V416c0-17.7-14.3-32-32-32H480c-17.7 0-32 14.3-32 32z"/></svg>
+        Roles: <%= guild.roles.cache.size - 1%>
+       </span>
+      </div> 
+       
+     </div>     
+    </div>
+
+  <pre></pre>
+
+     <div class="apps-card">
+
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="currentColor"><path d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128h95.1l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H347.1L325.8 320H384c17.7 0 32 14.3 32 32s-14.3 32-32 32H315.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7H155.1l-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l21.3-128H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h68.9l11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320h95.1l21.3-128H187.1z"/></svg>
+        Channels: <%= guild.channels.cache.size %>
+       </span>
+      </div>
+
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg>
+        Verification Level: <%= guild.verificationLevel %>
+       </span>
+      </div> 
+       
+       
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>
+        Guild Descripton:
+       </span> 
+               <div class="app-card__subtext" style="text-align:center;"> <%= guild.description %></div>
+      </div>
+      </div>    
+     </div>  
+
+
+
+<div id="Paris" class="tabcontent">
+    <div class="content-section">
+     <div class="content-section-title">Server Settings:</div>
+     <div class="apps-card">
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="currentColor"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/></svg>
+        Current Prefix: <%= settings.prefix %>
+       </span>
+<p>
+<div class="container text-light">
+       <div class="app-card__subtext" style="text-align:center;">
+<form role="form" action="/dashboard/server/<%= guild.id %>" method="POST">         
+            <input type="text" class="form-control" name="prefix" placeholder="<%= settings.prefix %>">
+  </form>
+       </div>      
+       <div class="app-card-buttons" style="text-align:center;">
+   <button type="submit" class="content-button status-button">Save Changes</button>          
+        </div>
+</div>
+        
+</p>
+        
+      </div>
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z"/></svg>
+        Current Language
+       </span> 
+      </div>
+      <div class="app-card">
+       <span>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg>
+        Verification Level: <%= guild.roles.cache.size - 1%>
+       </span>
+      </div>    
+     </div>     
     </div>
 </div>
+  
+<div id="London" class="tabcontent">
+  
+</div>     
 
-<!-- Ik this is not the prettiest list but it shows the servers correctly. -->
-<div class="container text-light">
-    <form role="form" action="/dashboard/server/<%= guild.id %>" method="POST">
-        <div class="mb-3">
-            <label for="prefix" class="form-label text-light">Prefix</label>
-            <input type="text" class="form-control" name="prefix" placeholder="<%= settings.prefix %>">
-            <br>
-            <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Save Changes</button>
-            <br>
-            <small>Page will reload after clicking the save button.</small>
-        </div>
-        <br>
-        <br>
-    </form>
-
+<div id="Tokyo" class="tabcontent">
+   <div class="content-section">
+     <div class="content-section-title">Your profile:</div>
+       <p>TESTsefsfefsefsefesfsesfe</p>
+     </div>  
+</div>     
+</div>    
+     
+   </div>
+  </div>
+ </div>
+ <div class="overlay-app"></div>
 </div>
 
+  
+               <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
-<%- include("../partials/footer") %>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();       
+ </script>
+
+<style>
+.tab {
+  overflow: hidden;
+}
+
+.tabcontent {
+  display: none;
+  animation: fadeEffect 0.8s;
+} 
+
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}  
+</style>
+               
+<script>
+$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+
+</script>
+
+
+     <script>
+$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+       
+     </script>
+  
+</body>
+
+</html>

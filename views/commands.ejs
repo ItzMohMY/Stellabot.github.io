@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/scripts.js"></script>
   <title>
-    StellaBot - الصفحة الرئيسية
+    StellaBot - الاوامر
   </title>
 <body>
 
@@ -34,8 +34,8 @@ Your browser does not support the video tag.
  <div class="header">
   <div class="menu-circle"></div>
   <div class="header-menu">
-   <a class="menu-link is-active" href="/">Home</a>
-   <a class="menu-link" href="/commands">Commands</a>
+   <a class="menu-link" href="/">Home</a>
+   <a class="menu-link is-active" href="/commands">Commands</a>
    <a class="menu-link" href="/premium">Premium</a>
   <% if (user) { %>
    
@@ -63,90 +63,61 @@ Your browser does not support the video tag.
 
   <div class="main-container">
    <div class="main-header">
-    <a class="menu-link-main">> Home page</a>
+    <a class="menu-link-main">> Commands page</a>
     <div class="header-menu">
-     <a class="main-header-link is-active" href="/">Center</a>
-     <a class="main-header-link" href="/dashboard/profile">Profile</a>
-     <a class="main-header-link" href="/dashboard/servers">Servers</a>
+     <a class="main-header-link" href="#" onclick="openCity(event, 'general')" id="defaultOpen">General</a>
+     <a class="main-header-link" href="#" onclick="openCity(event, 'admin')">Adminstrator</a>
+     <a class="main-header-link" href="#" onclick="openCity(event, 'games')">Games</a>
+     <a class="main-header-link" href="#" onclick="openCity(event, 'premium')">Premium</a>
     </div>
    </div>
   
    <div class="content-wrapper">
-    <div class="content-wrapper-header">
-     <div class="content-wrapper-context">
-      <h3 class="img-content">
-<img src="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002" width="30px;"> &nbsp; StellaBot
-      </h3>
-      <div class="content-text">Arabic bot, public commands, moderation commands, games commands, modern bot, and more! lets invite StellaBot to your server and test it!
-</div>
-       <a href="https://discord.com/api/oauth2/authorize?client_id=680799130800357398&permissions=8&scope=applications.commands%20bot">
-      <button class="content-button">Add to discord</button>
-       </a>
-     </div>
-    </div>
+<div id="general" class="tabcontent">
     <div class="content-section">
-     <div class="content-section-title">Stella Features:</div>
-     <div class="apps-card">
-      <div class="app-card">
-       <span>
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="currentColor"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
-        Slash Commands
-       </span>
-       <div class="app-card__subtext">يوفر لك ستيلا بوت الاوامر السريعة عن طريق الميزات الجديدة من ديسكورد وبسلاسة</div>
-       <div class="app-card-buttons">
-<p>2023/6/4</p>
-       </div>
-      </div>
-      <div class="app-card">
-       <span>
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
-        Fast in use
-       </span>
-       <div class="app-card__subtext">سيوفر لك ستيلا بوت السرعة الفائقة في عمله ولن يتوقف باذنِ الله تعالى</div>
-       <div class="app-card-buttons">
-<p>2023/6/4</p>
-       </div>
-      </div>
-      <div class="app-card">
-       <span>
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="currentColor"><path d="M51.7 295.1l31.7 6.3c7.9 1.6 16-.9 21.7-6.6l15.4-15.4c11.6-11.6 31.1-8.4 38.4 6.2l9.3 18.5c4.8 9.6 14.6 15.7 25.4 15.7c15.2 0 26.1-14.6 21.7-29.2l-6-19.9c-4.6-15.4 6.9-30.9 23-30.9h2.3c13.4 0 25.9-6.7 33.3-17.8l10.7-16.1c5.6-8.5 5.3-19.6-.8-27.7l-16.1-21.5c-10.3-13.7-3.3-33.5 13.4-37.7l17-4.3c7.5-1.9 13.6-7.2 16.5-14.4l16.4-40.9C303.4 52.1 280.2 48 256 48C141.1 48 48 141.1 48 256c0 13.4 1.3 26.5 3.7 39.1zm407.7 4.6c-3-.3-6-.1-9 .8l-15.8 4.4c-6.7 1.9-13.8-.9-17.5-6.7l-2-3.1c-6-9.4-16.4-15.1-27.6-15.1s-21.6 5.7-27.6 15.1l-6.1 9.5c-1.4 2.2-3.4 4.1-5.7 5.3L312 330.1c-18.1 10.1-25.5 32.4-17 51.3l5.5 12.4c8.6 19.2 30.7 28.5 50.5 21.1l2.6-1c10-3.7 21.3-2.2 29.9 4.1l1.5 1.1c37.2-29.5 64.1-71.4 74.4-119.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm144.5 92.1c-2.1 8.6 3.1 17.3 11.6 19.4l32 8c8.6 2.1 17.3-3.1 19.4-11.6s-3.1-17.3-11.6-19.4l-32-8c-8.6-2.1-17.3 3.1-19.4 11.6zm92-20c-2.1 8.6 3.1 17.3 11.6 19.4s17.3-3.1 19.4-11.6l8-32c2.1-8.6-3.1-17.3-11.6-19.4s-17.3 3.1-19.4 11.6l-8 32zM343.2 113.7c-7.9-4-17.5-.7-21.5 7.2l-16 32c-4 7.9-.7 17.5 7.2 21.5s17.5 .7 21.5-7.2l16-32c4-7.9 .7-17.5-7.2-21.5z"/></svg>
-        Multiaple Languages
-       </span>
-       <div class="app-card__subtext">يدعم ستيلا بوت عدة لغات ومنها العربية والاجنبية، فيمكن للجميع التحويل بين اللغات في مجتمعه</div>
-       <div class="app-card-buttons">
-         <p>2023/6/4</p>
-       </div>
-      </div>
-     </div>
-    </div>
-
-    <div class="content-section">
-     <div class="content-section-title">Famous users:</div>
+     <div class="content-section-title">General Commands:</div>
      <ul>
       <li class="adobe-product">
        <div class="products">
-<img src="https://cdn.discordapp.com/avatars/691044838459834430/2bc84d145d0d75036ff138473b3a02ce.webp?size=4096" width="25px;" style="border-radius:80px;"> &nbsp;
-       ! Lux
+       Command
        </div>
-       <span class="status">
-        <span class="status-circle yellow" style="background-color:gold;"></span>
-        Premium tire 3</span>
+       <span class="status" style="width:280px;">
+        About
+       </span>
+       <span class="status" style="width:1px;">
+        Permissions
+       </span>
+        
        <div class="button-wrapper">
-        <button class="content-button status-button open">Stella Developers</button>
-
+Premium
        </div>
       </li>
-       
       <li class="adobe-product">
        <div class="products">
-<img src="https://cdn.discordapp.com/avatars/854318054636519434/b1437fc8aaf352c7b438ddc5ae7c263d.webp?size=4096" width="25px;" style="border-radius:80px;"> &nbsp;
-        Martin -
+        !help
        </div>
-       <span class="status">
-        <span class="status-circle" style="background-color:gold;"></span>
-        Premium tire 3</span>
+
+       <span class="status" style="width:280px;">
+        للحصول على قائمة بالاوامر العامة</span>
+       <span class="status" style="width:1px;">
+        -</span>
+        
        <div class="button-wrapper">
-        <button class="content-button status-button open">Stella Developers</button>
+        <i class="fa-regular fa-square"></i>
+       </div>
+      </li>
+      <li class="adobe-product">
+       <div class="products">
+        /avatar
+       </div>
+
+       <span class="status" style="width:280px;">
+        الحصول على الصورة الشخصية لعضو ما/لك</span>
+       <span class="status" style="width:1px;">
+        -</span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-square"></i>
        </div>
       </li>
 
@@ -233,11 +204,46 @@ Your browser does not support the video tag.
      
    </div>
   </div>
+    </div>
  </div>
  <div class="overlay-app"></div>
 </div>
 
-  
+               <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();       
+ </script>
+
+<style>
+.tab {
+  overflow: hidden;
+}
+
+.tabcontent {
+  display: none;
+  animation: fadeEffect 0.8s;
+} 
+
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}  
+</style>  
 
 
 <script>

@@ -13,6 +13,22 @@ router.get("/", async(req, res) => {
     });
 });
 
+router.get("/commands", async(req, res) => {
+    res.render("commands", {
+        tag: (req.user ? req.user.tag : "Login"),
+        bot: req.client,
+        user: req.user || null,
+    });
+});
+
+router.get("/premium", async(req, res) => {
+    res.render("premium", {
+        tag: (req.user ? req.user.tag : "Login"),
+        bot: req.client,
+        user: req.user || null,
+    });
+});
+
 router.get("/stats", async(req, res) => {
     res.render("stats", {
         tag: (req.user ? req.user.tag : "Login"),

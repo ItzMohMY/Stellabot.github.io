@@ -16,16 +16,10 @@
   <link rel="stylesheet" href="/css/style.css" />
   <script src="/js/scripts.js"></script>
   <title>
-    StellaBot - حسابك الشخصي
+    StellaBot - البريموم
   </title>
 <body>
 
-<style>
-.statusColor {
-    color: <%= status %>;
-}
-</style>
-  
 <div class="video-bg">
  <video width="320" height="240" autoplay loop muted>
   <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
@@ -40,9 +34,9 @@ Your browser does not support the video tag.
  <div class="header">
   <div class="menu-circle"></div>
   <div class="header-menu">
-   <a class="menu-link is-active" href="/">Home</a>
+   <a class="menu-link" href="/">Home</a>
    <a class="menu-link" href="/commands">Commands</a>
-   <a class="menu-link" href="/premium">Premium</a>
+   <a class="menu-link is-active" href="/premium">Premium</a>
   <% if (user) { %>
    
    <% } else { %>
@@ -64,92 +58,265 @@ Your browser does not support the video tag.
       
   </div>
  </div>
- <%- include("../partials/header") %>
-   
+
+<%- include("partials/header") %>
+
   <div class="main-container">
    <div class="main-header">
-    <a class="menu-link-main">> Home page > Profile page</a>
-    <div class="header-menu">
-     <a class="main-header-link" href="/">Center</a>
-     <a class="main-header-link is-active" href="/dashboard/profile">Profile</a>
-     <a class="main-header-link" href="/dashboard/servers">Servers</a>
-
-    </div>
+    <a class="menu-link-main">> Premium page</a>
    </div>
+  
    <div class="content-wrapper">
     <div class="content-section">
-     <div class="content-section-title">Your profile:</div>
-     <div class="apps-card">
-      <div class="app-card">
-       <span>
-              <img
-                class="image has-image-centered vert-move mt-4"
-                src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>"
-                alt="hero image"
-                style="width: 20rem;border-radius:800px;border: 2px solid;"
-              />         
-       </span>
-       <div class="app-card__subtext" style="text-align:center;"> <%= user.username %>#<%= user.discriminator %></div>
-       <div class="app-card-buttons" style="text-align:center;">
-<p><i class="fas fa-circle statusColor fa-xs"></i> <%= statusName %></p>
-         
-       </div>
-      </div>
-     </div>
-    </div>
-
-    <div class="content-section">
-     <div class="content-section-title">Account details:</div>
+     <div class="content-section-title">Premium plans:</div>
      <ul>
       <li class="adobe-product">
        <div class="products">
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512" fill="currentColor"><path d="M192 128c0-17.7 14.3-32 32-32s32 14.3 32 32v7.8c0 27.7-2.4 55.3-7.1 82.5l-84.4 25.3c-40.6 12.2-68.4 49.6-68.4 92v71.9c0 40 32.5 72.5 72.5 72.5c26 0 50-13.9 62.9-36.5l13.9-24.3c26.8-47 46.5-97.7 58.4-150.5l94.4-28.3-12.5 37.5c-3.3 9.8-1.6 20.5 4.4 28.8s15.7 13.3 26 13.3H544c17.7 0 32-14.3 32-32s-14.3-32-32-32H460.4l18-53.9c3.8-11.3 .9-23.8-7.4-32.4s-20.7-11.8-32.2-8.4L316.4 198.1c2.4-20.7 3.6-41.4 3.6-62.3V128c0-53-43-96-96-96s-96 43-96 96v32c0 17.7 14.3 32 32 32s32-14.3 32-32V128zm-9.2 177l49-14.7c-10.4 33.8-24.5 66.4-42.1 97.2l-13.9 24.3c-1.5 2.6-4.3 4.3-7.4 4.3c-4.7 0-8.5-3.8-8.5-8.5V335.6c0-14.1 9.3-26.6 22.8-30.7zM24 368c-13.3 0-24 10.7-24 24s10.7 24 24 24H64.3c-.2-2.8-.3-5.6-.3-8.5V368H24zm592 48c13.3 0 24-10.7 24-24s-10.7-24-24-24H305.9c-6.7 16.3-14.2 32.3-22.3 48H616z"/></svg>
-        Username
+       Feature
        </div>
-       <span class="status"><%= user.username %>#<%= user.discriminator %></span>
+       <span class="status" style="width:80px;">
+        Premium tire 1
+       </span>
+       <span class="status" style="width:50px;">
+        Premium tire 2
+       </span>
+        
        <div class="button-wrapper">
-         <a href="/logout">
-         <button class="content-button status-button open" style="border-color:#e35659;color:#e35659;">Logout</button>
-           </a>
-
+       Premium tire 3
        </div>
       </li>
       <li class="adobe-product">
        <div class="products">
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="currentColor"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
-        User ID
+        Change prefix
        </div>
 
-       <span class="status">
-        <%= user.id %></span>
+       <span class="status" style="width:80px;"><i class="fa-regular fa-check-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
        <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+      <li class="adobe-product">
+       <div class="products">
+        Change language
+       </div>
 
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-check-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
        </div>
       </li>
 
       <li class="adobe-product">
        <div class="products">
-<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="currentColor"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
-        User credits
+        Unlock some commands
        </div>
 
-       <span class="status">
-        <%= user.credits %></span>
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-check-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
        <div class="button-wrapper">
-
+        <i class="fa-regular fa-check-square"></i>
        </div>
       </li>
-         
+
+      <li class="adobe-product">
+       <div class="products">
+        Can add auto-replys
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Private bot
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Edit bot avatar
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Edit bot profile
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>    
+
+      <li class="adobe-product">
+       <div class="products">
+        Premium protection
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-check-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Edit bot status (idle, dnd, other)
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+       
+      <li class="adobe-product">
+       <div class="products">
+        Profile in our website
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Link for your server in website
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Free ads in the top of website
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>       
+
+      <li class="adobe-product">
+       <div class="products">
+        Add more commands
+       </div>
+
+       <span class="status" style="width:80px;">
+        <i class="fa-regular fa-square"></i></span>
+       <span class="status" style="width:50px;">
+        <i class="fa-regular fa-square"></i></span>
+        
+       <div class="button-wrapper">
+        <i class="fa-regular fa-check-square"></i>
+       </div>
+      </li>
+
+      <li class="adobe-product">
+       <div class="products">
+        Price
+       </div>
+
+       <span class="status" style="width:80px;">
+        500,000 €</span>
+       <span class="status" style="width:50px;">
+        2,100,000 €</span>
+        
+       <div class="button-wrapper">
+        5,000,000 €
+       </div>
+      </li>
+       
      </ul>
     </div>
-     
-   </div>
   </div>
+    </div>
  </div>
  <div class="overlay-app"></div>
 </div>
 
-  
+<style>
+.tab {
+  overflow: hidden;
+}
+
+.tabcontent {
+  display: none;
+  animation: fadeEffect 0.8s;
+} 
+
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}  
+</style>  
 
 
 <script>

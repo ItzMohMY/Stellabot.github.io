@@ -1,31 +1,264 @@
-<%- include("../partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
 
-<title>Servers » <%= bot.user.username %> Dashboard</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://stellabot.projects-replit.repl.co/" />
+  <meta property="og:title" content="StellaBot" />
+  <meta property="og:description" content="Arabic bot, public commands, moderation commands, games commands, modern bot, and more!" />
+  <meta property="og:image" content="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002"/>
+  <meta property="og:color" content="#8a58f9" />
+  <script src="https://kit.fontawesome.com/b3a9d94f59.js" crossorigin="anonymous"></script>
+  <link rel="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002" sizes="76x76" href="./assets/img/apple-icon.png">
+  <script src="https://uptime.betterstack.com/widgets/announcement.js" data-id="163720" async="async" type="text/javascript"></script>
+  <link rel="icon" href="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/stella.png?v=1683473809002">
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/scripts.js"></script>
+  <title>
+    StellaBot - لوحة التحكم
+  </title>
+<body>
 
-<div class="text-center text-light" style="padding-top: 65px; padding-bottom: 20px;">
-    <div class="p-5 text-center" style="padding-top: 110px; background-color: #3B465E;">
-        <h1 class="mb-3">Select a Server...</h1>
+<div class="video-bg">
+ <video width="320" height="240" autoplay loop muted>
+  <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="dark-light">
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+   </div>
+<div class="app">
+ <div class="header">
+  <div class="menu-circle"></div>
+  <div class="header-menu">
+   <a class="menu-link is-active" href="/">Home</a>
+   <a class="menu-link" href="/commands">Commands</a>
+   <a class="menu-link" href="/premium">Premium</a>
+  <% if (user) { %>
+   
+   <% } else { %>
+    <a class="menu-link notify" href="/login">Login</a>
+     <% } %>
+  </div>
+
+  <div class="header-profile">
+
+  <% if (user) { %>
+  <a href="/dashboard/profile">
+   <img class="profile-img" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>" alt="">
+  </a>
+    <% } else { %>
+  <a href="/login">
+   <img class="profile-img" src="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/download.png?v=1685741416772" alt="">
+  </a>
+ <% } %>
+      
+  </div>
+ </div>
+ <%- include("../partials/header") %>
+   
+  <div class="main-container">
+   <div class="main-header">
+    <a class="menu-link-main">> Home page > Servers page</a>
+    <div class="header-menu">
+     <a class="main-header-link" href="/">Center</a>
+     <a class="main-header-link" href="/dashboard/profile">Profile</a>
+     <a class="main-header-link is-active" href="/dashboard/servers">Servers</a>
+
     </div>
+   </div>
+   <div class="content-wrapper">
+    <div class="content-section">
+     <div class="content-section-title">Choose an server:</div>
+     <div class="apps-card">
+      <% for (let i = 0; i < guilds.length; i++) { %>
+      <div class="app-card">
+       <span>
+         <% if (guilds[i].icon) { %>
+              <img class="image has-image-centered vert-move mt-4" src="https://cdn.discordapp.com/icons/<%= guilds[i].id %>/<%= guilds[i].icon %>" alt="hero image" style="width: 20rem;border-radius:50px;border: 2px solid;"/>         
+        <% } else { %>
+              <img class="image has-image-centered vert-move mt-4" src="https://cdn.glitch.global/a73b2e51-4594-43da-b8cc-73749c25705a/download.png?v=1685741416772" alt="hero image" style="width: 20rem;border-radius:50px;border: 2px solid;"/>             <% } %>
+       </span>
+       <div class="app-card__subtext" style="text-align:center;"> <%= guilds[i].name %></div>
+       <div class="app-card-buttons" style="text-align:center;">
+         <a href="/dashboard/server/<%= guilds[i].id %>">
+   <button class="content-button status-button">Manage Server</button>
+         </a>
+         
+       </div>
+      </div>
+       <% } %>
+     </div>
+    </div>
+
+     
+   </div>
+  </div>
+ </div>
+ <div class="overlay-app"></div>
 </div>
 
-<!-- Ik this is not the prettiest list but it shows the servers correctly. -->
-<div class="container text-center">
-    <div class="row">
-        <ul class="list-group" style="padding-bottom: 20px">
-            <% for (let i = 0; i < guilds.length; i++) { %>
-                
-                  <li class="list-group-item"><a class="text-dark" href="/dashboard/server/<%= guilds[i].id %>">
-                    <% if (guilds[i].icon) { %>
-                        <img class="rounded-circle" width="84px" style="opacity: 1;" src="https://cdn.discordapp.com/icons/<%= guilds[i].id %>/<%= guilds[i].icon %>"> 
-                    <% } else { %>
-                        <img class="rounded-circle" width="84px" style="opacity: 1;" src="https://discordapp.com/assets/6debd47ed13483642cf09e832ed0bc1b.png?size=2048"> 
-                    <% } %>
-                    <span style="padding-left: 20px; font-size: larger;"><%= guilds[i].name %></span></a></li>
-            <% } %>
-        </ul>  
-      </div>    
-
-</div>
+  
 
 
-<%- include("../partials/footer") %>
+<script>
+$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+
+</script>
+
+
+     <script>
+$(function () {
+ $(".menu-link").click(function () {
+  $(".menu-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+$(function () {
+ $(".main-header-link").click(function () {
+  $(".main-header-link").removeClass("is-active");
+  $(this).addClass("is-active");
+ });
+});
+
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) => {
+ dropdown.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdowns.forEach((c) => c.classList.remove("is-active"));
+  dropdown.classList.add("is-active");
+ });
+});
+
+$(".search-bar input")
+ .focus(function () {
+  $(".header").addClass("wide");
+ })
+ .blur(function () {
+  $(".header").removeClass("wide");
+ });
+
+$(document).click(function (e) {
+ var container = $(".status-button");
+ var dd = $(".dropdown");
+ if (!container.is(e.target) && container.has(e.target).length === 0) {
+  dd.removeClass("is-active");
+ }
+});
+
+$(function () {
+ $(".dropdown").on("click", function (e) {
+  $(".content-wrapper").addClass("overlay");
+  e.stopPropagation();
+ });
+ $(document).on("click", function (e) {
+  if ($(e.target).is(".dropdown") === false) {
+   $(".content-wrapper").removeClass("overlay");
+  }
+ });
+});
+
+$(function () {
+ $(".status-button:not(.open)").on("click", function (e) {
+  $(".overlay-app").addClass("is-active");
+ });
+ $(".pop-up .close").click(function () {
+  $(".overlay-app").removeClass("is-active");
+ });
+});
+
+$(".status-button:not(.open)").click(function () {
+ $(".pop-up").addClass("visible");
+});
+
+$(".pop-up .close").click(function () {
+ $(".pop-up").removeClass("visible");
+});
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+       
+     </script>
+  
+</body>
+
+</html>

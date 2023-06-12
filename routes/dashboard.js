@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const moment = require("moment");
 require("moment-duration-format");
-const checkAuth = require('../backend/CheckAuth');
+const checkAuth = require('../backend/checkAuth');
  
 router.get("/profile", checkAuth, async (req, res) => {
 
@@ -74,7 +74,7 @@ router.get("/server/:guildID", checkAuth, async (req, res) => {
     let server = req.client.guilds.cache.get(req.params.guildID);
 
     if (!server && req.user.guilds.filter(u => ((u.permissions & 2146958591) === 2146958591)).map(u => u.id).includes(req.params.guildID)) {
-        return res.redirect(`https://discord.com/oauth2/authorize?client_id=${req.client.id}&scope=bot&permissions=0&guild_id=${req.params.guildID}`);  //Full Permissions Invite
+        return res.redirect(`https://discord.com/oauth2/authorize?client_id=680799130800357398&scope=bot&permissions=0&guild_id=${req.params.guildID}`);  //Full Permissions Invite
     } else if (!server) {
         return res.redirect(`/dashboard/servers`);
     };
